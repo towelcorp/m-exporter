@@ -1,0 +1,108 @@
+Step: step-credential-initializer-zzd88:
+
+{"level":"warn","ts":1565941777.3766215,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565941777.3774347,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: step-working-dir-initializer-gjdxt:
+
+{"level":"warn","ts":1565941778.3997383,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565941778.410099,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/charts/m-exporter\""}
+Step: step-place-tools:
+
+Step: step-git-source-towelcorp-m-exporter-master-sjtnr:
+
+{"level":"warn","ts":1565941785.4360528,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565941786.6789916,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/towelcorp/m-exporter.git @ v0.0.2 in path /workspace/source"}
+Step: step-git-merge:
+
+WARNING: no SHAs to merge, falling back to initial cloned commit
+Step: step-setup-**-git-credentials:
+
+Generated Git credentials file /workspace/xdg_config/git/credentials
+Step: step-build-python-unittest:
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Step: step-build-container-build:
+
+[36mINFO[0m[0000] Downloading base image python:onbuild        
+2019/08/16 07:49:48 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] Error while retrieving image from cache: getting file info: stat /workspace/sha256:43780a8431c53f4afd734ad795e03127c0c607337a60639c5903a51a03535c22: no such file or directory 
+[36mINFO[0m[0002] Downloading base image python:onbuild        
+2019/08/16 07:49:50 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0004] Executing 3 build triggers                   
+[36mINFO[0m[0004] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0004] Checking for cached layer 10.109.112.181:5000/todo/cache:f96ea06eb1dc1e896fb6ba60e374488f43e9918d4fe1cb30c5f26c8dea340a73... 
+2019/08/16 07:49:52 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0004] Using caching version of cmd: RUN pip install --no-cache-dir -r requirements.txt 
+[36mINFO[0m[0004] Using files from context: [/workspace/source] 
+[36mINFO[0m[0004] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0004] cmd: EXPOSE                                  
+[36mINFO[0m[0004] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0004] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0004] Taking snapshot of full filesystem...        
+[36mINFO[0m[0007] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0007] COPY requirements.txt /usr/src/app/          
+[36mINFO[0m[0007] Taking snapshot of files...                  
+[36mINFO[0m[0007] RUN pip install --no-cache-dir -r requirements.txt 
+[36mINFO[0m[0007] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0007] Taking snapshot of files...                  
+[36mINFO[0m[0008] Using files from context: [/workspace/source] 
+[36mINFO[0m[0008] COPY . /usr/src/app                          
+[36mINFO[0m[0008] Taking snapshot of files...                  
+[36mINFO[0m[0008] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0008] COPY requirements.txt .                      
+[36mINFO[0m[0008] Taking snapshot of files...                  
+[36mINFO[0m[0008] ENV PORT 8080                                
+[36mINFO[0m[0008] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0008] EXPOSE 8080                                  
+[36mINFO[0m[0008] cmd: EXPOSE                                  
+[36mINFO[0m[0008] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0008] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0008] ENTRYPOINT ["python"]                        
+[36mINFO[0m[0008] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0008] CMD ["app.py"]                               
+[36mINFO[0m[0008] No files changed in this command, skipping snapshotting. 
+2019/08/16 07:49:56 existing blob: sha256:1c7fe136a31e13a1c879245672184ced3b9fc590989ba42a522a57b071a9c1aa
+2019/08/16 07:49:56 existing blob: sha256:06854774e2f35e4763103a446112c67322913a6177bea69eb49663e0166e6d6d
+2019/08/16 07:49:56 existing blob: sha256:f0db43b9b8da254cebc77bf871006df01219e195b9853616b9f708f124a00f3a
+2019/08/16 07:49:56 existing blob: sha256:2d21c767035c4593de8bf7ad9781aa83ba110871d1a50871192f4e3480e6f11d
+2019/08/16 07:49:56 existing blob: sha256:ece825d3308bbf98f708d95475ccd880497a1e2979ff4ef2534d49049a18488f
+2019/08/16 07:49:56 existing blob: sha256:490280dbcfb772eb5731f059e38fcfacaeb75b4d005af7c249fd51926db2bd62
+2019/08/16 07:49:56 existing blob: sha256:e10b68fb77e6e91453cd4c1b02e2d77aa23a857cd8eb250617129d074478e1a5
+2019/08/16 07:49:56 existing blob: sha256:e2c0fb34dff3a1d32346b92e53fb88a14d1987b402a2348cb379c039687fabe2
+2019/08/16 07:49:56 existing blob: sha256:e96bc319bce0351d1157092352bc5f85f8800c745388e60e86d06dec99285b45
+2019/08/16 07:50:01 pushed blob: sha256:b647f0e67f063283e5dc89b9f28e9c1b7f89f22962a13c0411b96dc8ab24d6be
+2019/08/16 07:50:01 pushed blob: sha256:fdc236b2859aaf7ad1dbde25dc8ab5c34433ab7bee1430831a29242c056bd954
+2019/08/16 07:50:01 pushed blob: sha256:121f6262c6cb4a5f7305f21cb96074d4e55021aa366aedfd5b1dc0af994b2b48
+2019/08/16 07:50:01 pushed blob: sha256:b23fb476ebc6defa62010c301db6fab48f59dd9cc51e9d3f58a0fe51aed37ed0
+2019/08/16 07:50:01 pushed blob: sha256:81e08653d6a679e8072730d6f48f5c1d5d82a0c7f5b3048b8ef87e87716a1e6e
+2019/08/16 07:50:10 10.109.112.181:5000/towelcorp/m-exporter:0.0.2: digest: sha256:8a08b14e5392d68a1847300ab4c009e3bcd7179da56ddd5bcbc05d69a75e5e4e size: 2385
+Step: step-build-post-build:
+
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+Step: step-promote-changelog:
+
+Converted /workspace/source/charts/m-exporter to an unshallow repository
+Generating change log from git ref 3d6e6654d4ffecabd4879a14b56a8aa0c8745b0b => bafc93d03c878d19e61e4cd7f1b4501b5f768fc9
+WARNING: No release found for towelcorp/m-exporter and tag v0.0.2 so creating a new release
+Updated the release information at https://github.com/towelcorp/m-exporter/releases/tag/v0.0.2
+generated: /workspace/source/charts/m-exporter/templates/release.yaml
+Created Release m-exporter-0-0-2 resource in namespace **
+Updating PipelineActivity towelcorp-m-exporter-master-2 with version 0.0.2
+Updated PipelineActivities towelcorp-m-exporter-master-2 with release notes URL: https://github.com/towelcorp/m-exporter/releases/tag/v0.0.2
+Step: step-promote-helm-release:
+
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file m-exporter-0.0.2.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 401 response: {"error":"unauthorized"}
+error: Failed to post chart to http://jenkins-x-chartmuseum:8080/api/charts due to response 401: {"error":"unauthorized"}
+Step: step-promote-**-promote:
+
